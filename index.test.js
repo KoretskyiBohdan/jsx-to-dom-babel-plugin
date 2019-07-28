@@ -92,7 +92,7 @@ describe('jsx-dom', () => {
       .toEqual(createDOMFromString('<div>0</div>'));
   });
 
-  it('should supports dom listeners', () => {
+  it('should support dom listeners', () => {
     const spy = jasmine.createSpy('event');
     const $el = <div onClick={spy}/>;
 
