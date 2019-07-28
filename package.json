@@ -1,0 +1,32 @@
+{
+  "name": "JSX-custom-pragma",
+  "version": "1.0.0",
+  "description": "Pragma function for babel-plugin-transform-react-jsx",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/karma/bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoretzkiyBogdan/JSX-custom-pragma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KoretzkiyBogdan/JSX-custom-pragma/issues"
+  },
+  "homepage": "https://github.com/KoretzkiyBogdan/JSX-custom-pragma#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "karma": "^4.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^4.0.2",
+    "trigger-event": "^1.0.3",
+    "webpack": "^4.38.0"
+  }
+}
