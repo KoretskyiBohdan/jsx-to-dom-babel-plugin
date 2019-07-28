@@ -1,61 +1,68 @@
 const h = require('./index');
 const triggerEvent = require('trigger-event');
 
+const createDOMFromString = (string = '') => {
+  const _$wrapper = document.createElement('div');
+  _$wrapper.innerHTML = string;
+  return _$wrapper.firstChild;
+};
+
 describe('jsx-dom', () => {
   it('should create a regular div', () => {
-    const $div = <div/>;
-
-    expect($div).toEqual(document.createElement('div'));
+    expect(<div/>)
+      .toEqual(
+        createDOMFromString('<div></div>')
+      );
   });
 
   it('should create a regular div with styles string', () => {
-    const $div = <div style="padding: 10px; color: red;"/>;
+    const $el = <div style="padding: 10px; color: red;"/>;
 
-    expect($div.style.padding).toEqual('10px');
-    expect($div.style.color).toEqual('red');
+    expect($el.style.padding)
+      .toEqual('10px');
+    expect($el.style.color)
+      .toEqual('red');
   });
 
   it('should create a regular div with styles object', () => {
-    const $div = <div style={{padding: '10px', color: 'red'}}/>;
+    const $el = <div style={{padding: '10px', color: 'red'}}/>;
 
-    expect($div.style.padding).toEqual('10px');
-    expect($div.style.color).toEqual('red');
+    expect($el.style.padding)
+      .toEqual('10px');
+    expect($el.style.color)
+      .toEqual('red');
   });
 
   it('should create a regular div with class and id', () => {
-    const $div = <div className="test-class" id="test-id"/>;
+    const $el = <div className="test-class" id="test-id"/>;
 
-    expect($div.className).toEqual('test-class');
-    expect($div.id).toEqual('test-id');
+    expect($el.className)
+      .toEqual('test-class');
+    expect($el.id)
+      .toEqual('test-id');
   });
 
   it('should create div with attributes', () => {
-    const $div = <div data-value="12" tabIndex="1" title="test-div"/>;
-    const $expectDiv = document.createElement('div');
-
-    $expectDiv.setAttribute('data-value', '12');
-    $expectDiv.setAttribute('tabindex', '1');
-    $expectDiv.setAttribute('title', 'test-div');
-
-    expect($div).toEqual($expectDiv);
+    expect(<div data-value="12" tabIndex="1" title="test-div"/>)
+      .toEqual(
+        createDOMFromString(
+          '<div data-value="12" tabindex="1" title="test-div"></div>'
+        )
+      );
   });
 
   it('should create span with text', () => {
-    const $span = <span>Test text</span>;
-    const $expectSpan = document.createElement('span');
-
-    $expectSpan.innerHTML = 'Test text';
-
-    expect($span).toEqual($expectSpan);
+    expect(<span>Test text</span>)
+      .toEqual(
+        createDOMFromString('<span>Test text</span>')
+      );
   });
 
   it('should render array of elements', () => {
-    const $element = <div>{[<span/>, <span/>]}</div>;
-    const $expectedElement = document.createElement('div');
-
-    $expectedElement.innerHTML = '<span></span><span></span>';
-
-    expect($element).toEqual($expectedElement);
+    expect(<div>{[<span/>, <span/>]}</div>)
+      .toEqual(
+        createDOMFromString('<div><span></span><span></span></div>')
+      );
   });
 
   it('should create dom element with children', () => {
@@ -65,12 +72,24 @@ describe('jsx-dom', () => {
         <span>Content</span>
       </div>
     );
-    const $expectEl = document.createElement('div');
 
-    $expectEl.className = 'container';
-    $expectEl.innerHTML = '<h1>Highlight text</h1><span>Content</span>';
+    expect($el)
+      .toEqual(
+        createDOMFromString(
+          '<div class="container"><h1>Highlight text</h1><span>Content</span></div>'
+        )
+      );
+  });
 
-    expect($el).toEqual($expectEl);
+  it('should work with falsy values', () => {
+    expect(<div>{null}</div>)
+      .toEqual(createDOMFromString('<div></div>'));
+    expect(<div>{false}</div>)
+      .toEqual(createDOMFromString('<div>false</div>'));
+    expect(<div>{undefined}</div>)
+      .toEqual(createDOMFromString('<div>undefined</div>'));
+    expect(<div>{0}</div>)
+      .toEqual(createDOMFromString('<div>0</div>'));
   });
 
   it('should supports dom listeners', () => {
@@ -78,7 +97,6 @@ describe('jsx-dom', () => {
     const $el = <div onClick={spy}/>;
 
     triggerEvent($el, 'click');
-
     expect(spy).toHaveBeenCalled();
   });
 });
