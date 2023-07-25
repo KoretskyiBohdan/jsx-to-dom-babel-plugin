@@ -8,11 +8,11 @@ module.exports = function (config) {
       "./**/*.test.js": ["webpack"],
     },
     reporters: ["dots"],
-    browsers: ["PhantomJS"],
+    browsers: ["ChromeHeadless"],
     plugins: [
       require("karma-webpack"),
       require("karma-jasmine"),
-      require("karma-phantomjs-launcher"),
+      require("karma-chrome-launcher"),
     ],
     phantomjsLauncher: { exitOnResourceError: true },
     webpack,
