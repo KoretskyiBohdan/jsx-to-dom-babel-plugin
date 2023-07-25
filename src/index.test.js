@@ -1,4 +1,5 @@
 const triggerEvent = require("trigger-event");
+const { pragmaFnName } = require("./constants");
 
 const createDOMFromString = (string = "") => {
   const _$wrapper = document.createElement("div");
@@ -8,7 +9,8 @@ const createDOMFromString = (string = "") => {
 
 describe("jsx-dom", () => {
   beforeAll(() => {
-    global.customPragma = require("./pragma");
+    // make it global to avoid unused imports
+    global[pragmaFnName] = require("./pragma");
   });
 
   it("should create a regular div", () => {
