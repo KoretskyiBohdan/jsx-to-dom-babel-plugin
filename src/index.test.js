@@ -1,4 +1,3 @@
-const customPragma = require("./pragma");
 const triggerEvent = require("trigger-event");
 
 const createDOMFromString = (string = "") => {
@@ -8,6 +7,10 @@ const createDOMFromString = (string = "") => {
 };
 
 describe("jsx-dom", () => {
+  beforeAll(() => {
+    global.customPragma = require("./pragma");
+  });
+
   it("should create a regular div", () => {
     expect(<div />).toEqual(createDOMFromString("<div></div>"));
   });
