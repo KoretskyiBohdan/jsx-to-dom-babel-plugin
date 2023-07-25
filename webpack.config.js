@@ -1,6 +1,9 @@
 const JsxToDomPlugin = require("./src/plugin");
 
 module.exports = {
+  node: {
+    fs: "empty",
+  },
   module: {
     rules: [
       {
@@ -13,8 +16,7 @@ module.exports = {
             [
               "@babel/preset-env",
               {
-                useBuiltIns: "entry",
-                modules: false,
+                modules: "umd",
               },
             ],
           ],
@@ -26,5 +28,5 @@ module.exports = {
     modules: [__dirname, "node_modules"],
   },
   devtool: "none",
-  mode: "production",
+  mode: "development",
 };
