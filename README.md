@@ -1,7 +1,7 @@
 # JSX to DOM.
 
 ##### Plugin which use [babel-plugin-transform-react-jsx](https://www.npmjs.com/package/babel-plugin-transform-react-jsx) under the hood.
-##### It allows to create a regular dom elements from JSX syntax (useful for any non-react env if you want to use JSX syntax)
+##### It allows to create a regular dom elements from JSX syntax (useful for any non-react env if you want to use JSX syntax).
 
 ## Setup
 ```js
@@ -21,7 +21,7 @@ const webpack = {
 ```
 ## Example:
 <b>createDOM</b> is a runtime function which will resolve params as real DOM elements. <br/>
-You can consider it as a [pragma function](https://www.npmjs.com/package/babel-plugin-transform-react-jsx#pragma) for "transform-react-jsx"
+Basically it's just a custom [pragma function](https://www.npmjs.com/package/babel-plugin-transform-react-jsx#pragma) for "transform-react-jsx".
 ### In
 ```js
 const markup = (
