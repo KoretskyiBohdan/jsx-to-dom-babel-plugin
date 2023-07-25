@@ -1,22 +1,22 @@
 {
-  "name": "JSX-custom-pragma",
+  "name": "jsx-to-dom-babel-plugin",
   "version": "1.0.0",
-  "description": "Pragma function for babel-plugin-transform-react-jsx",
-  "main": "index.js",
+  "description": "Simple babel plugin to trasform jsx syntax into real dom elements ",
+  "main": "src/index.js",
   "scripts": {
     "test": "node ./node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KoretzkiyBogdan/JSX-custom-pragma.git"
+    "url": "git+https://github.com/KoretskyiBogdan/jsx-to-dom-babel-plugin.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bohdan Korestkiy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KoretzkiyBogdan/JSX-custom-pragma/issues"
+    "url": "https://github.com/KoretskyiBogdan/jsx-to-dom-babel-plugin/issues"
   },
-  "homepage": "https://github.com/KoretzkiyBogdan/JSX-custom-pragma#readme",
+  "homepage": "https://github.com/KoretskyiBogdan/jsx-to-dom-babel-plugin#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
