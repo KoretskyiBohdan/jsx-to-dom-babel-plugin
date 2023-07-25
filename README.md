@@ -1,4 +1,4 @@
-# JSX to Dom Plugin.
+# JSX to DOM.
 
 ##### Plugin which use [babel-plugin-transform-react-jsx](https://www.npmjs.com/package/babel-plugin-transform-react-jsx) under the hood.
 ##### It allows to create a regural dom elements from JSX syntax (useful for any non-react env if you want to use JSX syntax)
