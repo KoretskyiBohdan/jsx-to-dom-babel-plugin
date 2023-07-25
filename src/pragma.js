@@ -1,6 +1,4 @@
-//
-const STYLE = 'style';
-// RegExp to match event listener properties
+const STYLE = "style";
 const EVENT_REG_EXP = /^on/;
 
 /**
@@ -9,7 +7,8 @@ const EVENT_REG_EXP = /^on/;
  * @param {DOMNode|string} input - data to transform
  * @returns {DOMNode|TextNode} - current node
  */
-const toNode = (input) => input instanceof HTMLElement ? input : document.createTextNode(input);
+const toNode = (input) =>
+  input instanceof HTMLElement ? input : document.createTextNode(input);
 
 /**
  * It applies style to DOM node
@@ -19,7 +18,7 @@ const toNode = (input) => input instanceof HTMLElement ? input : document.create
  * @returns {DOMNode} - current node
  */
 const applyStyle = ($node, styles) => {
-  if (typeof styles === 'string') {
+  if (typeof styles === "string") {
     $node.style.cssText = styles;
   } else {
     for (const prop in styles) $node.style[prop] = styles[prop];
@@ -60,10 +59,10 @@ const appendChildren = ($node, children) => {
     }
   }
   return $node;
-}
+};
 
 /**
- * Regural pragma function which returns real DOM nodes
+ * Standart pragma function which returns real DOM nodes
  *
  * @param {string} tag - tagname
  * @param {object} attributes - all received properties
@@ -80,7 +79,7 @@ module.exports = function (tag, attributes, ...children) {
       applyListener($node, name, attributes[name]);
     } else if (name in $node) {
       $node[name] = attributes[name];
-    } else if (attributes[name] !== null ){
+    } else if (attributes[name] !== null) {
       $node.setAttribute(name, attributes[name]);
     }
   }
